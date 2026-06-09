@@ -127,6 +127,10 @@ if (!fs.existsSync('./session/creds.json') && global.sessionid) {
   }
 }
 
+// Une session est-elle présente sur le disque ? Si oui, on l'utilise directement
+// et on NE demande JAMAIS de pairing code (évite le conflit 401 quand registered=false).
+const hasSession = fs.existsSync('./session/creds.json');
+
 const { state, saveCreds } = await useMultiFileAuthState('./session');
 
 const msgRetryCounterCache = new NodeCache();
@@ -260,8 +264,10 @@ const msgRetryCounterCache = new NodeCache();
         XeonBotInc.public = true;
         XeonBotInc.serializeM = (m) => smsg(XeonBotInc, m, store);
 
-        // Handle pairing code
-        if (pairingCode && !XeonBotInc.authState.creds.registered) {
+        // Handle pairing code — UNIQUEMENT si aucune session n'est chargée.
+        // Si une session existe (hasSession), on l'utilise telle quelle, même si
+        // creds.registered est false, et on ne demande PAS de pairing code.
+        if (!hasSession && pairingCode && !XeonBotInc.authState.creds.registered) {
             if (useMobile) throw new Error('Cannot use pairing code with mobile api');
             let phoneNumber;
             if (!!global.phoneNumber) {
