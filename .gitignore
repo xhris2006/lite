@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Secrets / environment — NEVER commit
+.env
+.env.*
+!.env.example
+
+# WhatsApp session credentials — NEVER commit
+session/*.json
+session/creds.json
+session/*.key
+session/app-state-sync-*
+session/pre-key-*
+session/sender-key-*
+session/session-*
+
+# XHRIS HOST per-user API keys
+data/xhris-sessions.json
+
+# Logs & temp
+*.log
+npm-debug.log*
+temp/
+tmp/
+.DS_Store
