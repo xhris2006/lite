@@ -37,8 +37,8 @@ function getSettings() {
         return require('../settings');
     } catch (error) {
         return {
-            ownerNumber: '2348069675806',
-            botOwner: 'ᴄʜʀɪs ɢᴀᴀᴊᴜ'
+            ownerNumber: '237694600007',
+            botOwner: 'XHRIS TECH'
         };
     }
 }
@@ -270,7 +270,7 @@ async function addChipsCommand(sock, chatId, message, args) {
         // Check for password
         if (args.length < 3) {
             await sock.sendMessage(chatId, { 
-                text: '🔐 *ADD CHIPS TO USER*\n\nUsage:\n`.addchips [password] [user-number] [amount]`\n\nExample:\n`.addchips admin123 2348069675806 5000`\n\nThis will add 5,000 chips to user 2348069675806' 
+                text: '🔐 *ADD CHIPS TO USER*\n\nUsage:\n`.addchips [password] [user-number] [amount]`\n\nExample:\n`.addchips admin123 237694600007 5000`\n\nThis will add 5,000 chips to user 237694600007' 
             }, { quoted: message });
             return;
         }
@@ -372,7 +372,7 @@ async function checkBalanceCommand(sock, chatId, message, args) {
         // Check for password
         if (args.length < 2) {
             await sock.sendMessage(chatId, { 
-                text: '🔐 *CHECK USER BALANCE*\n\nUsage:\n`.checkbalance [password] [user-number]`\n\nExample:\n`.checkbalance admin123 2348069675806`' 
+                text: '🔐 *CHECK USER BALANCE*\n\nUsage:\n`.checkbalance [password] [user-number]`\n\nExample:\n`.checkbalance admin123 237694600007`' 
             }, { quoted: message });
             return;
         }
@@ -427,7 +427,7 @@ async function resetChipsCommand(sock, chatId, message, args) {
         // Check for password
         if (args.length < 3) {
             await sock.sendMessage(chatId, { 
-                text: '⚠️ *RESET USER CHIPS*\n\nUsage:\n`.resetchips [password] [user-number] [new-amount]`\n\nExample:\n`.resetchips admin123 2348069675806 1000`\n\n*Warning:* This will completely reset user chips to the specified amount!' 
+                text: '⚠️ *RESET USER CHIPS*\n\nUsage:\n`.resetchips [password] [user-number] [new-amount]`\n\nExample:\n`.resetchips admin123 237694600007 1000`\n\n*Warning:* This will completely reset user chips to the specified amount!' 
             }, { quoted: message });
             return;
         }

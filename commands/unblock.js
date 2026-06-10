@@ -30,13 +30,13 @@ async function unblockCommand(sock, chatId, message) {
 
         if (!targetJid) {
             return await sock.sendMessage(chatId, {
-                text: '❌ Please specify a user to unblock.\n\nExamples:\n.unblock @username (mention in group)\n.unblock 2348038915922 (phone number)\nReply to a message with .unblock',
+                text: '❌ Please specify a user to unblock.\n\nExamples:\n.unblock @username (mention in group)\n.unblock 237694600007 (phone number)\nReply to a message with .unblock',
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -52,8 +52,8 @@ async function unblockCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -67,8 +67,8 @@ async function unblockCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }

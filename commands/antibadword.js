@@ -81,8 +81,8 @@ async function antibadwordCommand(sock, chatId, message, senderId, isSenderAdmin
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -98,8 +98,8 @@ async function antibadwordCommand(sock, chatId, message, senderId, isSenderAdmin
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -147,8 +147,8 @@ async function antibadwordCommand(sock, chatId, message, senderId, isSenderAdmin
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363406588763460@newsletter',
-                            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                            newsletterName: 'XHRIS MD V2 LITE',
                             serverMessageId: -1
                         }
                     }
@@ -162,8 +162,8 @@ async function antibadwordCommand(sock, chatId, message, senderId, isSenderAdmin
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -196,8 +196,8 @@ async function showAntibadwordHelp(sock, chatId, message) {
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363406588763460@newsletter',
-                newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                newsletterName: 'XHRIS MD V2 LITE',
                 serverMessageId: -1
             }
         }
@@ -216,8 +216,8 @@ async function enableAntibadword(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -229,8 +229,8 @@ async function enableAntibadword(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -250,8 +250,8 @@ async function disableAntibadword(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -263,8 +263,8 @@ async function disableAntibadword(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -280,8 +280,8 @@ async function addBadWord(sock, chatId, message, words) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -320,8 +320,8 @@ async function addBadWord(sock, chatId, message, words) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -333,8 +333,8 @@ async function addBadWord(sock, chatId, message, words) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -350,8 +350,8 @@ async function removeBadWord(sock, chatId, message, words) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -367,8 +367,8 @@ async function removeBadWord(sock, chatId, message, words) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -405,8 +405,8 @@ async function removeBadWord(sock, chatId, message, words) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -418,8 +418,8 @@ async function removeBadWord(sock, chatId, message, words) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -439,8 +439,8 @@ async function listBadWords(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -469,8 +469,8 @@ async function listBadWords(sock, chatId, message) {
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363406588763460@newsletter',
-                newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                newsletterName: 'XHRIS MD V2 LITE',
                 serverMessageId: -1
             }
         }
@@ -490,8 +490,8 @@ async function clearBadWords(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -503,8 +503,8 @@ async function clearBadWords(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -528,8 +528,8 @@ async function showStatus(sock, chatId, message) {
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363406588763460@newsletter',
-                newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                newsletterName: 'XHRIS MD V2 LITE',
                 serverMessageId: -1
             }
         }

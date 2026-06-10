@@ -27,7 +27,7 @@
         const answer = responses[Math.floor(Math.random() * responses.length)];
 
         await sock.sendMessage(chatId, { 
-            text: `🎱 *8-BALL SAYS:*\n\n*Q: ${question}*\n*A:* ${answer}\n\n*Powered by Chris Gaaju*` 
+            text: `🎱 *8-BALL SAYS:*\n\n*Q: ${question}*\n*A:* ${answer}\n\n*Powered by XHRIS TECH*` 
         });
 
     } catch (error) {

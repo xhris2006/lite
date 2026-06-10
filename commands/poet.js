@@ -227,7 +227,7 @@ async function poetCommand(sock, chatId, message) {
         // Create the final message with header
         const finalMessage = `📜 *POETIC WISDOM* 📜\n\n` +
                            `"${randomPoem}"\n\n` +
-                           `*${settings.packname || 'Gᴀᴀᴊᴜ-Xᴍᴅ'}* 🤖 | *200+ Poetic Quotes*`;
+                           `*${settings.packname || 'XHRIS MD V2 LITE'}* 🤖 | *200+ Poetic Quotes*`;
 
         // Send the poetic message
         await sock.sendMessage(chatId, {
@@ -236,8 +236,8 @@ async function poetCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -252,8 +252,8 @@ async function poetCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }

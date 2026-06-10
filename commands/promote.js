@@ -38,7 +38,7 @@ async function promoteCommand(sock, chatId, mentionedJids, message) {
             `${usernames.map(name => `• ${name}`).join('\n')}\n\n` +
             `👑 *Promoted By:* @${promoterJid.split('@')[0]}\n\n` +
             `📅 *Date:* ${new Date().toLocaleString()}\n\n` +
-            `*Copyright ᴄʜʀɪs ɢᴀᴀᴊᴜ 2026*`;
+            `*Copyright XHRIS TECH 2026*`;
         await sock.sendMessage(chatId, { 
             text: promotionMessage,
             mentions: [...userToPromote, promoterJid]
@@ -84,7 +84,7 @@ async function handlePromotionEvent(sock, groupId, participants, author) {
             `${promotedUsernames.map(name => `• ${name}`).join('\n')}\n\n` +
             `👑 *Promoted By:* ${promotedBy}\n\n` +
             `📅 *Date:* ${new Date().toLocaleString()}\n\n` +
-            `*Copyright ᴄʜʀɪs ɢᴀᴀᴊᴜ 2026*`;       
+            `*Copyright XHRIS TECH 2026*`;       
         
         await sock.sendMessage(groupId, {
             text: promotionMessage,

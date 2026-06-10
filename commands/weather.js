@@ -4,7 +4,7 @@ async function weatherCommand(sock, chatId, message, city) {
 try {
 if (!city) {
 return await sock.sendMessage(chatId, {
-text: `🌤️ *Weather Command*\n\n❌ *Please specify a city!*\n\n*Usage:* .weather <city>\n*Examples:*\n.weather Lagos\n.weather London\n.weather New York\n\n_Powered by Gᴀᴀᴊᴜ-Xᴍᴅ_`
+text: `🌤️ *Weather Command*\n\n❌ *Please specify a city!*\n\n*Usage:* .weather <city>\n*Examples:*\n.weather Lagos\n.weather London\n.weather New York\n\n_Powered by XHRIS MD V2 LITE_`
 }, { quoted: message });
 }
 
@@ -28,7 +28,7 @@ const weatherMessage = `🌤️ *WEATHER REPORT*
 ☁️ *Condition:* ${weatherData.description}
 🌅 *Time:* ${new Date().toLocaleTimeString()}
 
-_Powered by Gᴀᴀᴊᴜ-Xᴍᴅ_`;
+_Powered by XHRIS MD V2 LITE_`;
 
 await sock.sendMessage(chatId, {
 text: weatherMessage
@@ -37,7 +37,7 @@ text: weatherMessage
 } catch (error) {
 console.error('Weather Error:', error.message);
 await sock.sendMessage(chatId, {
-text: `❌ *Weather service temporary unavailable*\n\n🔍 *You searched:* "${city}"\n\n💡 *Working examples:*\n.weather lagos\n.weather london\n.weather tokyo\n\n_Powered by GAAJU-XMD_`
+text: `❌ *Weather service temporary unavailable*\n\n🔍 *You searched:* "${city}"\n\n💡 *Working examples:*\n.weather lagos\n.weather london\n.weather tokyo\n\n_Powered by XHRIS MD V2 LITE_`
 }, { quoted: message });
 }
 }

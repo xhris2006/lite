@@ -51,7 +51,7 @@ function updateUserStats(userJid, platform) {
             platforms: {},
             users: {},
             lastUpdated: Date.now(),
-            botName: settings.botName || 'GAAJU-XMD',
+            botName: settings.botName || 'XHRIS MD V2 LITE',
             version: settings.version || '1.0.0'
         };
         
@@ -136,7 +136,7 @@ function getUserStats() {
                 platforms: {},
                 isGlobal: false,
                 source: 'Local Storage',
-                botName: settings.botName || 'GAAJU-XMD',
+                botName: settings.botName || 'XHRIS MD V2 LITE',
                 version: settings.version || '1.0.0'
             };
         }
@@ -160,7 +160,7 @@ function getUserStats() {
             platforms: stats.platforms || {},
             isGlobal: false,
             source: 'Local Storage',
-            botName: stats.botName || settings.botName || 'GAAJU-XMD',
+            botName: stats.botName || settings.botName || 'XHRIS MD V2 LITE',
             version: stats.version || settings.version || '1.0.0'
         };
         
@@ -190,14 +190,14 @@ function getBotMode() {
             const data = JSON.parse(fs.readFileSync(messageCountPath, 'utf8'));
             
             if (typeof data.isPublic === 'boolean') {
-                return data.isPublic ? 'PUBLIC 🌐' : 'PRIVATE 🔒';
+                return data.isPublic ? 'PUBLIC' : 'PRIVATE';
             }
         }
-        
-        return settings.commandMode === 'public' ? 'PUBLIC 🌐' : 'PRIVATE 🔒';
+
+        return settings.commandMode === 'public' ? 'PUBLIC' : 'PRIVATE';
     } catch (error) {
         console.error('Error detecting bot mode:', error);
-        return 'PUBLIC 🌐';
+        return 'PUBLIC';
     }
 }
 
@@ -400,8 +400,8 @@ async function sendMenu(sock, chatId, message, helpMessage, userId) {
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: global.newsletterJid || '120363406588763460@newsletter',
-                            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                            newsletterName: 'XHRIS MD V2 LITE',
                             serverMessageId: -1
                         }
                     }
@@ -418,8 +418,8 @@ async function sendMenu(sock, chatId, message, helpMessage, userId) {
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: global.newsletterJid || '120363406588763460@newsletter',
-                            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                            newsletterName: 'XHRIS MD V2 LITE',
                             serverMessageId: -1
                         }
                     }
@@ -538,349 +538,274 @@ async function helpCommand(sock, chatId, message) {
         '║     📈 Your Usage: First time user';
     
     // Build the help message with the CORRECT menu type from the start
-    const helpMessage = `
-👋 *Hello @${userName}! ${greeting.message}*
+    const fmtUptime = (s) => {
+        const d = Math.floor(s / 86400);
+        const h = Math.floor((s % 86400) / 3600);
+        const m = Math.floor((s % 3600) / 60);
+        const sec = Math.floor(s % 60);
+        return `${d}d ${h}h ${m}m ${sec}s`;
+    };
+    const uptimeStr = fmtUptime(process.uptime());
 
-*${greeting.greeting}! Here's your menu:*
+    const helpMessage = `┌─────────────────────
+│  ${settings.botName || 'XHRIS MD V2 LITE'}
+│  User     : @${userName}
+│  Owner    : ${settings.botOwner || 'XHRIS'}
+│  Number   : ${settings.ownerNumber}
+│  Version  : ${stats.version || settings.version}
+│  Prefix   : ${prefix}
+│  Mode     : ${currentBotMode}
+│  Uptime   : ${uptimeStr}
+│  Commands : ${totalCommands}
+│  Platform : ${userPlatform}
+│  Time     : ${getLocalizedTime()}
+└─────────────────────
 
-╔═══════════════════╗
-║
-║  *🔹 ${settings.botName || 'XHRIS MD V2 LITE'} MENU 🔹*
-║
-║   *👤 User: [ @${userName} ]*
-║   *🤖 BotName: [ ${settings.botName || 'GAAJU-XMD'} ]*
-║   *🧠 Version: [ ${stats.version || settings.version || '1.0.0'} ]*
-║   *👑 BotOwner: [ ${settings.botOwner || 'CHRIS GAAJU'} ]*
-║   *📺 YT Channel: [ ${global.ytch} ]*
-║   *📢 TG Channel: [ https://t.me/chrisgaajutechs ]*
-║   *👥 TG Group: [ https://t.me/official_ChrisGaajuChat ]*
-║   *📞 OwnerNumber: [ ${settings.ownerNumber} ]*
-║   *📥 Prefix: [ ${prefix} ]*
-║   *🎬 Menu Media: [ ${menuType} & AUDIO ]*
-║   *🌍 TimeZone: [ ${settings.timezone} ]*
-║   *⏰ Current Time: [ ${greeting.time} ]*
-║   *${dayInfo.emoji} Day: [ ${dayInfo.day} ]*
-║   *💻 Bot Mode: [ ${currentBotMode} ]*
-║   *📊 Total Commands: [ ${totalCommands} ]*
-║   *📅 Date: [ ${getLocalizedTime()} ]*
-║   *📡 Your Platform: [ ${userPlatform} ]*
-║   *👥 Active Users Now: [ ${stats.activeUsers} ]*
-║   *📈 Total Users All Time: [ ${stats.totalUsers} ]*
-║
-║   *🌐 Users by Platform:*
-║   ${platformStatsText}
-║
-║   *📡 Tracking: Local Storage ✅*
-║
-╚═══════════════════╝
+GENERAL
+ ${prefix}menu
+ ${prefix}help
+ ${prefix}ping
+ ${prefix}alive
+ ${prefix}owner
+ ${prefix}tts <text>
+ ${prefix}joke
+ ${prefix}quote
+ ${prefix}fact
+ ${prefix}weather <city>
+ ${prefix}news
+ ${prefix}attp <text>
+ ${prefix}lyrics <title>
+ ${prefix}8ball <question>
+ ${prefix}vv
+ ${prefix}trt <text> <lang>
+ ${prefix}ss <link>
+ ${prefix}url
+ ${prefix}getjid
 
-*⬇️ ALL COMMANDS ⬇️*
+OWNER
+ ${prefix}mode <public/private>
+ ${prefix}autorecord
+ ${prefix}autotyping
+ ${prefix}autorecordtype
+ ${prefix}autostatus <on/off>
+ ${prefix}autoreact <on/off>
+ ${prefix}autoread <on/off>
+ ${prefix}antiforeign
+ ${prefix}join
+ ${prefix}poll
+ ${prefix}vote
+ ${prefix}block
+ ${prefix}unblock
+ ${prefix}getpp
+ ${prefix}leave
+ ${prefix}clearsession
+ ${prefix}antidelete
+ ${prefix}tempfile
+ ${prefix}cleartmp
+ ${prefix}checkupdate
+ ${prefix}updateinfo
+ ${prefix}update
+ ${prefix}botinfo
+ ${prefix}setprefix
+ ${prefix}setbotname
+ ${prefix}setbotowner
+ ${prefix}setownernumber
+ ${prefix}setytchannel
+ ${prefix}setpackname
+ ${prefix}setauthor
+ ${prefix}settimezone
+ ${prefix}confighelp
+ ${prefix}restart
+ ${prefix}sudo
+ ${prefix}settings
+ ${prefix}setpp <reply image>
+ ${prefix}anticall <on/off>
+ ${prefix}pmblocker <on/off/status>
+ ${prefix}setmention <reply msg>
+ ${prefix}mention <on/off>
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *OWNER CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}mode <public/private>
-│『 ${prefix}autorecord
-│『 ${prefix}autotyping
-│『 ${prefix}autorecordtype
-│『 ${prefix}autostatus <on/off>
-│『 ${prefix}autostatus react <on/off>
-│『 ${prefix}autoreact <on/off>
-│『 ${prefix}autoread <on/off>
-│『 ${prefix}antiforeign
-│『 ${prefix}join
-│『 ${prefix}poll/${prefix}vote
-│『 ${prefix}block
-│『 ${prefix}unblock
-│『 ${prefix}getpp
-│『 ${prefix}leave
-│『 ${prefix}clearsession
-│『 ${prefix}antidelete
-│『 ${prefix}tempfile
-│『 ${prefix}cleartmp
-│『 ${prefix}checkupdate
-│『 ${prefix}updateinfo
-│『 ${prefix}update
-│『 ${prefix}botinfo
-│『 ${prefix}setprefix
-│『 ${prefix}setbotname
-│『 ${prefix}setbotowner
-│『 ${prefix}setownernumber
-│『 ${prefix}setytchannel
-│『 ${prefix}setpackname
-│『 ${prefix}setauthor
-│『 ${prefix}settimezone
-│『 ${prefix}confighelp
-│『 ${prefix}restart
-│『 ${prefix}sudo
-│『 ${prefix}settings
-│『 ${prefix}setpp <reply to image>
-│『 ${prefix}anticall <on/off>
-│『 ${prefix}pmblocker <on/off/status>
-│『 ${prefix}pmblocker setmsg <text>
-│『 ${prefix}setmention <reply to msg>
-│『 ${prefix}mention <on/off>
-┗━━━━━━━━━━━━━❍
+GROUP
+ ${prefix}ban @user
+ ${prefix}unban @user
+ ${prefix}promote @user
+ ${prefix}demote @user
+ ${prefix}mute <minutes>
+ ${prefix}unmute
+ ${prefix}delete
+ ${prefix}kick @user
+ ${prefix}ship
+ ${prefix}stupid @user <text>
+ ${prefix}warn @user
+ ${prefix}warnings @user
+ ${prefix}antilink
+ ${prefix}antibadword
+ ${prefix}antibot
+ ${prefix}groupinfo
+ ${prefix}admins
+ ${prefix}jid
+ ${prefix}tag <message>
+ ${prefix}tagall
+ ${prefix}tagnotadmin
+ ${prefix}hidetag <message>
+ ${prefix}chatbot
+ ${prefix}resetlink
+ ${prefix}antitag <on/off>
+ ${prefix}welcome <on/off>
+ ${prefix}goodbye <on/off>
+ ${prefix}setgdesc <description>
+ ${prefix}setgname <name>
+ ${prefix}setgpp <reply image>
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *GROUP CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}ban @user
-│『 ${prefix}unban @user
-│『 ${prefix}promote @user
-│『 ${prefix}demote @user
-│『 ${prefix}mute <minutes>
-│『 ${prefix}unmute
-│『 ${prefix}delete
-│『 ${prefix}kick @user
-│『 ${prefix}ship
-│『 ${prefix}stupid @user <text>
-│『 ${prefix}warnings @user
-│『 ${prefix}warn @user
-│『 ${prefix}antilink
-│『 ${prefix}antibadword
-│『 ${prefix}antibot
-│『 ${prefix}groupinfo
-│『 ${prefix}admins
-│『 ${prefix}jid
-│『 ${prefix}tag <message>
-│『 ${prefix}tagall
-│『 ${prefix}tagnotadmin
-│『 ${prefix}hidetag <message>
-│『 ${prefix}chatbot
-│『 ${prefix}resetlink
-│『 ${prefix}antitag <on/off>
-│『 ${prefix}welcome <on/off>
-│『 ${prefix}goodbye <on/off>
-│『 ${prefix}setgdesc <description>
-│『 ${prefix}setgname <new name>
-│『 ${prefix}setgpp (reply to image)
-┗━━━━━━━━━━━━━❍
+STICKER
+ ${prefix}sticker <reply img/vid>
+ ${prefix}simage <reply sticker>
+ ${prefix}blur <image>
+ ${prefix}removebg
+ ${prefix}remini
+ ${prefix}crop <reply image>
+ ${prefix}tgsticker <link>
+ ${prefix}meme
+ ${prefix}take <packname>
+ ${prefix}emojimix <e1>+<e2>
+ ${prefix}igs <insta link>
+ ${prefix}igsc <insta link>
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *STICKER CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}blur <image>
-│『 ${prefix}simage <reply to sticker>
-│『 ${prefix}sticker <reply to img or vid>
-│『 ${prefix}removebg
-│『 ${prefix}remini
-│『 ${prefix}crop <reply to image>
-│『 ${prefix}tgsticker <Link>
-│『 ${prefix}meme
-│『 ${prefix}take <packname>
-│『 ${prefix}emojimix <emj1>+<emj2>
-│『 ${prefix}igs <insta link>
-│『 ${prefix}igsc <insta link>
-┗━━━━━━━━━━━━━❍
+DOWNLOAD
+ ${prefix}play <song>
+ ${prefix}song <song>
+ ${prefix}spotify <query>
+ ${prefix}instagram <link>
+ ${prefix}facebook <link>
+ ${prefix}tiktok <link>
+ ${prefix}video <song>
+ ${prefix}ytmp4 <link>
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *WHATSAPP CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}clear
-┗━━━━━━━━━━━━━❍
+AI
+ ${prefix}gpt <question>
+ ${prefix}gemini <question>
+ ${prefix}imagine <prompt>
+ ${prefix}flux <prompt>
+ ${prefix}sora <prompt>
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *PIES CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}pies <country>
-│『 ${prefix}china
-│『 ${prefix}indonesia
-│『 ${prefix}japan
-│『 ${prefix}korea
-│『 ${prefix}hijab
-┗━━━━━━━━━━━━━❍
+GAME
+ ${prefix}tictactoe @user
+ ${prefix}hangman
+ ${prefix}guess <letter>
+ ${prefix}trivia
+ ${prefix}answer <answer>
+ ${prefix}truth
+ ${prefix}dare
+ ${prefix}coinflip <heads/tails> <bet>
+ ${prefix}coinstats
+ ${prefix}coinleaderboard
+ ${prefix}coindaily
+ ${prefix}buychips
+ ${prefix}coinhelp
+ ${prefix}unlimitedchips <pass>
+ ${prefix}addchips <pass> <user> <amount>
+ ${prefix}checkbalance <pass> <user>
+ ${prefix}resetchips <pass> <user> <amount>
+ ${prefix}transactions <pass>
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *GAME CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}tictactoe @user
-│
-│『 *HANGMAN*
-│『 ${prefix}hangman
-│『 ${prefix}guess <letter for hangman>
-│
-│『 *TRIVIA*
-│『 ${prefix}trivia
-│『 ${prefix}answer <answer for trivia>
-│
-│『 *TRUTH & DARE*
-│『 ${prefix}truth
-│『 ${prefix}dare
-│
-│『 *COINFLIP BASIC*
-│『 ${prefix}coinflip
-│『 ${prefix}coinflip <heads/tails>
-│『 ${prefix}coinflip <heads/tails> <bet amount>
-│『 ${prefix}coinstats
-│『 ${prefix}coinleaderboard
-│『 ${prefix}coindaily
-│『 ${prefix}buychips
-│『 ${prefix}coinhelp
-│
-│『 *COINFLIP ADMIN*
-│『 ${prefix}unlimitedchips <pass>
-│『 ${prefix}addchips <pass> <user> <amount>
-│『 ${prefix}checkbalance <pass> <user>
-│『 ${prefix}resetchips <pass> <user> <amount>
-│『 ${prefix}transactions <pass>
-┗━━━━━━━━━━━━━❍
+FUN
+ ${prefix}compliment @user
+ ${prefix}insult @user
+ ${prefix}flirt
+ ${prefix}poet
+ ${prefix}goodnight
+ ${prefix}roseday
+ ${prefix}character @user
+ ${prefix}wasted @user
+ ${prefix}simp @user
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *AI CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}gpt <question>
-│『 ${prefix}gemini <question>
-│『 ${prefix}imagine <prompt>
-│『 ${prefix}flux <prompt>
-│『 ${prefix}sora <prompt>
-┗━━━━━━━━━━━━━❍
+EPHOTO
+ ${prefix}metallic <text>
+ ${prefix}ice <text>
+ ${prefix}snow <text>
+ ${prefix}impressive <text>
+ ${prefix}matrix <text>
+ ${prefix}light <text>
+ ${prefix}neon <text>
+ ${prefix}devil <text>
+ ${prefix}purple <text>
+ ${prefix}thunder <text>
+ ${prefix}leaves <text>
+ ${prefix}1917 <text>
+ ${prefix}arena <text>
+ ${prefix}hacker <text>
+ ${prefix}sand <text>
+ ${prefix}blackpink <text>
+ ${prefix}glitch <text>
+ ${prefix}fire <text>
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *FUN CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}compliment @user
-│『 ${prefix}insult @user
-│『 ${prefix}flirt
-│『 ${prefix}poet
-│『 ${prefix}goodnight
-│『 ${prefix}roseday
-│『 ${prefix}character @user
-│『 ${prefix}wasted @user
-│『 ${prefix}simp @user
-┗━━━━━━━━━━━━━❍
+PIES
+ ${prefix}pies <country>
+ ${prefix}china
+ ${prefix}indonesia
+ ${prefix}japan
+ ${prefix}korea
+ ${prefix}hijab
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *EPHOTO CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}metallic <text>
-│『 ${prefix}ice <text>
-│『 ${prefix}snow <text>
-│『 ${prefix}impressive <text>
-│『 ${prefix}matrix <text>
-│『 ${prefix}light <text>
-│『 ${prefix}neon <text>
-│『 ${prefix}devil <text>
-│『 ${prefix}purple <text>
-│『 ${prefix}thunder <text>
-│『 ${prefix}leaves <text>
-│『 ${prefix}1917 <text>
-│『 ${prefix}arena <text>
-│『 ${prefix}hacker <text>
-│『 ${prefix}sand <text>
-│『 ${prefix}blackpink <text>
-│『 ${prefix}glitch <text>
-│『 ${prefix}fire <text>
-┗━━━━━━━━━━━━━❍
+MISC
+ ${prefix}heart
+ ${prefix}horny
+ ${prefix}circle
+ ${prefix}lgbt
+ ${prefix}lolice
+ ${prefix}tonikawa
+ ${prefix}its-so-stupid
+ ${prefix}namecard
+ ${prefix}oogway
+ ${prefix}oogway2
+ ${prefix}tweet
+ ${prefix}ytcomment
+ ${prefix}comrade
+ ${prefix}gay
+ ${prefix}glass
+ ${prefix}jail
+ ${prefix}passed
+ ${prefix}triggered
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *DOWNLOAD CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}play <song name>
-│『 ${prefix}song <song name>
-│『 ${prefix}spotify <query>
-│『 ${prefix}instagram <link>
-│『 ${prefix}facebook <link>
-│『 ${prefix}tiktok <link>
-│『 ${prefix}video <song name>
-│『 ${prefix}ytmp4 <Link>
-┗━━━━━━━━━━━━━❍
+ANIME
+ ${prefix}nom
+ ${prefix}poke
+ ${prefix}cry
+ ${prefix}kiss
+ ${prefix}pat
+ ${prefix}hug
+ ${prefix}wink
+ ${prefix}facepalm
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *MISC CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}heart
-│『 ${prefix}horny
-│『 ${prefix}circle
-│『 ${prefix}lgbt
-│『 ${prefix}lolice
-│『 ${prefix}tonikawa
-│『 ${prefix}its-so-stupid
-│『 ${prefix}namecard
-│『 ${prefix}oogway
-│『 ${prefix}oogway2
-│『 ${prefix}tweet
-│『 ${prefix}ytcomment
-│『 ${prefix}comrade
-│『 ${prefix}gay
-│『 ${prefix}glass
-│『 ${prefix}jail
-│『 ${prefix}passed
-│『 ${prefix}triggered
-┗━━━━━━━━━━━━━❍
+GITHUB
+ ${prefix}git
+ ${prefix}github
+ ${prefix}sc
+ ${prefix}script
+ ${prefix}repo
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *ANIME CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}nom
-│『 ${prefix}poke
-│『 ${prefix}cry
-│『 ${prefix}kiss
-│『 ${prefix}pat
-│『 ${prefix}hug
-│『 ${prefix}wink
-│『 ${prefix}facepalm
-┗━━━━━━━━━━━━━❍
+WHATSAPP
+ ${prefix}clear
 
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *GITHUB CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}git
-│『 ${prefix}github
-│『 ${prefix}sc
-│『 ${prefix}script
-│『 ${prefix}repo
-┗━━━━━━━━━━━━━❍
-
-┏━━━━━━━━━━━━━━━❍
-┗┳❍ 「 *GENERAL CMDS* 」❍
-┏┻━━━━━━━━━━━━━━❍
-│『 ${prefix}help or ${prefix}menu
-│『 ${prefix}ping
-│『 ${prefix}alive
-│『 ${prefix}tts <text>
-│『 ${prefix}owner
-│『 ${prefix}joke
-│『 ${prefix}quote
-│『 ${prefix}fact
-│『 ${prefix}weather <city>
-│『 ${prefix}news
-│『 ${prefix}attp <text>
-│『 ${prefix}lyrics <songtitle>
-│『 ${prefix}8ball <question>
-│『 ${prefix}vv
-│『 ${prefix}trt <text> <lang>
-│『 ${prefix}ss <link>
-│『 ${prefix}url
-│『 ${prefix}getjid
-┗━━━━━━━━━━━━━❍ 
-
-┏━━━━━━━━━━━━━━━❍
-┃ 🏆 *COPYRIGHT: CHRIS GAAJU 2026* 🏆
-┗━━━━━━━━━━━━━━━❍
-
-*📊 Total Commands: ${totalCommands}*
-
-*📊 Local Stats: ${stats.activeUsers} active now, ${stats.totalUsers} total users*
-
-*${greeting.emoji} ${greeting.greeting}, @${userName}! ${greeting.message}*
-
-*⬇️Join our channel below for updates⬇️*`;
+─────────────────────
+Commands : ${totalCommands}   Users : ${stats.totalUsers}
+XHRIS TECH
+`;
 
     try {
         // Send the appropriate media based on menuType
         if (menuType === 'IMAGE') {
-            const imageBuffer = fs.readFileSync(imagePath);
+            const botPic = global.botPic || settings.botImage;
+            const imageContent = botPic ? { url: botPic } : fs.readFileSync(imagePath);
             await sock.sendMessage(chatId, {
-                image: imageBuffer,
+                image: imageContent,
                 caption: helpMessage,
                 mentions: [senderId],
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -897,8 +822,8 @@ async function helpCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -914,8 +839,8 @@ async function helpCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -938,8 +863,8 @@ async function helpCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }

@@ -45,7 +45,7 @@ newsMessage = generateDailyNews();
 
 newsMessage += `*📡 Source: BBC News*\n\n`;
 newsMessage += `*⏰ Updated:* ${new Date().toLocaleString()}\n\n`;
-newsMessage += `*Powered by GAAJU-XMD*`;
+newsMessage += `*Powered by XHRIS MD V2 LITE*`;
 
 await sock.sendMessage(chatId, {
 text: newsMessage
@@ -92,7 +92,7 @@ newsMessage += `📝 Daily updates and latest developments\n\n`;
 }
 
 newsMessage += `📅 Date: ${new Date().toLocaleDateString()}\n`;
-newsMessage += `_Powered by GAAJU-XMD_`;
+newsMessage += `_Powered by XHRIS MD V2 LITE_`;
 
 return newsMessage;
 }

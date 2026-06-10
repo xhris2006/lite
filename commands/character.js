@@ -64,7 +64,7 @@ async function characterCommand(sock, chatId, message) {
             `✨ *Key Traits:*\n${traitPercentages.join('\n')}\n\n` +
             `🎯 *Overall Rating: ${Math.floor(Math.random() * 21) + 80}%*\n\n` +
             `*Note: This is just for fun do not take this personal!😁*\n\n` +
-            `*🔴Copyright ᴄʜʀɪs ɢᴀᴀᴊᴜ 2026🔴*\n\n`;
+            `*🔴Copyright XHRIS TECH 2026🔴*\n\n`;
             
 
         // Send the analysis with the user's profile picture

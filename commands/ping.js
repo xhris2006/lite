@@ -29,13 +29,13 @@ async function pingCommand(sock, chatId, message) {
         const uptimeFormatted = formatTime(uptimeInSeconds);
 
         const botInfo = `
-╔══ *🎖️Gᴀᴀᴊᴜ-Xᴍᴅ🎖️* ════╗
+╔══ *🎖️XHRIS MD V2 LITE🎖️* ════╗
 ║
 ║  *🚀 Ping: ${ping} ms*
 ║  *⏱️ Uptime: ${uptimeFormatted}*
 ║  *🔖 Version: ${settings.version}*
 ║
-║   *Copyright ᴄʜʀɪs ɢᴀᴀᴊᴜ 2026*
+║   *Copyright XHRIS TECH 2026*
 ╚════════════════════╝`.trim();
 
         // Reply to the original message with the bot info

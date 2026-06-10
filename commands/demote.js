@@ -72,7 +72,7 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
             `${usernames.map(name => `• ${name}`).join('\n')}\n\n` +
             `👑 *Demoted By:* @${message.key.participant ? message.key.participant.split('@')[0] : message.key.remoteJid.split('@')[0]}\n\n` +
             `📅 *Date:* ${new Date().toLocaleString()}\n\n` +
-            `*Copyright ᴄʜʀɪs ɢᴀᴀᴊᴜ 2026*`;
+            `*Copyright XHRIS TECH 2026*`;
         
         await sock.sendMessage(chatId, { 
             text: demotionMessage,
@@ -142,7 +142,7 @@ async function handleDemotionEvent(sock, groupId, participants, author) {
             `${demotedUsernames.map(name => `• ${name}`).join('\n')}\n\n` +
             `👑 *Demoted By:* ${demotedBy}\n\n` +
             `📅 *Date:* ${new Date().toLocaleString()}\n\n` +
-            `*Copyright ᴄʜʀɪs ɢᴀᴀᴊᴜ 2026*`;
+            `*Copyright XHRIS TECH 2026*`;
         
         await sock.sendMessage(groupId, {
             text: demotionMessage,

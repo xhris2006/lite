@@ -98,7 +98,7 @@ async function emojimixCommand(sock, chatId, msg) {
         // Create metadata with packname
         const json = {
             'sticker-pack-id': crypto.randomBytes(32).toString('hex'),
-            'sticker-pack-name': settings.packname || 'GAAJU-XMD',
+            'sticker-pack-name': settings.packname || 'XHRIS MD V2 LITE',
             'sticker-pack-publisher': settings.author || 'Wally Jay',
             'emojis': [emoji1, emoji2]
         };

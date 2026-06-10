@@ -109,7 +109,7 @@ async function miscCommand(sock, chatId, message, args) {
                 const joined = rest.join(' ');
                 const [username, birthday, description] = joined.split('|').map(s => (s || '').trim());
                 if (!username || !birthday) {
-                    await sock.sendMessage(chatId, { text: '*Usage: .namecard username|birthday|description(optional)*\n\n*Explanation: use your command prefix [,.etc] then followed by namecard follow by |26/03/2007 then follow by |description you like make sure you always use this | to separate birthday & description*\n\n*For example: .namecard chrisgaaju |26/03/2007 |tech guy*\n\n*Copyright Chris Gaaju  2026*' }, { quoted: message });
+                    await sock.sendMessage(chatId, { text: '*Usage: .namecard username|birthday|description(optional)*\n\n*Explanation: use your command prefix [,.etc] then followed by namecard follow by |26/03/2007 then follow by |description you like make sure you always use this | to separate birthday & description*\n\n*For example: .namecard xhristech |26/03/2007 |tech guy*\n\n*Copyright XHRIS TECH  2026*' }, { quoted: message });
                     return;
                 }
                 const avatarUrl = await getQuotedOrOwnImageUrl(sock, message);

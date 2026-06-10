@@ -50,7 +50,7 @@ function downloadFile(url, dest, visited = new Set()) {
             const client = useHttps ? require('https') : require('http');
             const req = client.get(url, {
                 headers: {
-                    'User-Agent': 'GAAJU-XMD-Updater/1.0',
+                    'User-Agent': 'XHRIS MD V2 LITE-Updater/1.0',
                     'Accept': '*/*'
                 }
             }, res => {

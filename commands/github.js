@@ -8,14 +8,14 @@ async function githubCommand(sock, chatId, message) {
         // Show typing indicator
         await sock.sendPresenceUpdate('composing', chatId);
 
-        const res = await fetch('https://api.github.com/repos/Xchristech2/GAAJU-XMD');
+        const res = await fetch('https://api.github.com/repos/xhris2006/lite');
         if (!res.ok) throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
         
         const json = await res.json();
 
         // Create professional formatted message
-        let txt = `*🤖 GAAJU-XMD REPOSITORY* 🤖\n\n`;
-        txt += `📛 *Repository Name:* ${json.name || 'GAAJU-XMD'}\n`;
+        let txt = `*🤖 XHRIS MD V2 LITE REPOSITORY* 🤖\n\n`;
+        txt += `📛 *Repository Name:* ${json.name || 'XHRIS MD V2 LITE'}\n`;
         txt += `📖 *Description:* ${json.description || 'A Multi-Device WhatsApp User Bot'}\n`;
         txt += `👁️ *Watchers:* ${json.watchers_count?.toLocaleString() || '0'}\n`;
         txt += `💾 *Repository Size:* ${(json.size / 1024).toFixed(2)} MB\n`;
@@ -35,7 +35,7 @@ async function githubCommand(sock, chatId, message) {
         txt += `• 📂 [View Repository](${json.html_url})\n`;
         txt += `• 🐛 [Report Issues](${json.html_url}/issues)\n`;
         txt += `• 🎥 [Deployment Tutorial] (https://youtu.be/JV4vcawI6fI)\n\n`;
-        txt += `*© XCHRISTECH 2026 | All Rights Reserved*`;
+        txt += `*© XHRIS TECH 2026 | All Rights Reserved*`;
 
         // Try to use local asset image, fallback to repository image
         let imageBuffer;
@@ -58,8 +58,8 @@ async function githubCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -71,8 +71,8 @@ async function githubCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -85,13 +85,13 @@ async function githubCommand(sock, chatId, message) {
         console.error('❌ Error in github command:', error);
         
         await sock.sendMessage(chatId, { 
-            text: `*❌ GITHUB REPOSITORY ERROR*\n\nFailed to fetch repository information.\n\n*Error Details:* ${error.message}\n\nPlease try again later or check the repository manually:\nhttps://github.com/Xchristech2/GAAJU-XMD`,
+            text: `*❌ GITHUB REPOSITORY ERROR*\n\nFailed to fetch repository information.\n\n*Error Details:* ${error.message}\n\nPlease try again later or check the repository manually:\nhttps://github.com/xhris2006/lite`,
             contextInfo: {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -102,7 +102,7 @@ async function githubCommand(sock, chatId, message) {
 // Function to get repository statistics (can be used for other purposes)
 async function getRepoStats() {
     try {
-        const res = await fetch('https://api.github.com/repos/Xchristech2/GAAJU-XMD');
+        const res = await fetch('https://api.github.com/repos/xhris2006/lite');
         if (!res.ok) throw new Error('Failed to fetch repository data');
         return await res.json();
     } catch (error) {

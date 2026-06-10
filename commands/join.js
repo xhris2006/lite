@@ -1,5 +1,5 @@
 /**
- * GAAJUX-MD - A WhatsApp Bot
+ * XHRIS MD V2 LITE - A WhatsApp Bot
  * Join Command - Join any WhatsApp group via link
  */
 
@@ -9,8 +9,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363406588763460@newsletter',
-            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+            newsletterName: 'XHRIS MD V2 LITE',
             serverMessageId: -1
         }
     }
@@ -53,7 +53,7 @@ async function joinCommand(sock, chatId, message) {
         // If no arguments, show usage
         if (args.length === 0) {
             await sock.sendMessage(chatId, {
-                text: `👥 *JOIN COMMAND*\n\n━━━━━━━━━━━━━━━━━━━━\n📖 *Usage:*\n└ .join <group-link>\n\n━━━━━━━━━━━━━━━━━━━━\n✨ *Examples:*\n└ .join https://chat.whatsapp.com/K1CZsGzSk6t8Rw4t81fHEI\n└ .join https://chat.whatsapp.com/ABC123def456\n\n━━━━━━━━━━━━━━━━━━━━\n📌 *Note:*\n└ Only works for WhatsApp GROUP links\n└ Does NOT work for Channels\n\n━━━━━━━━━━━━━━━━━━━━\n💡 *Group link format:*\n└ https://chat.whatsapp.com/XXXXXX`,
+                text: `👥 *JOIN COMMAND*\n\n━━━━━━━━━━━━━━━━━━━━\n📖 *Usage:*\n└ .join <group-link>\n\n━━━━━━━━━━━━━━━━━━━━\n✨ *Examples:*\n└ .join https://chat.whatsapp.com/XXXXXXXXXXXXXXXXXXXXX\n└ .join https://chat.whatsapp.com/ABC123def456\n\n━━━━━━━━━━━━━━━━━━━━\n📌 *Note:*\n└ Only works for WhatsApp GROUP links\n└ Does NOT work for Channels\n\n━━━━━━━━━━━━━━━━━━━━\n💡 *Group link format:*\n└ https://chat.whatsapp.com/XXXXXX`,
                 ...channelInfo
             });
             return;
@@ -64,7 +64,7 @@ async function joinCommand(sock, chatId, message) {
         // Show help
         if (action === 'help') {
             await sock.sendMessage(chatId, {
-                text: `🆘 *JOIN COMMAND HELP*\n\n━━━━━━━━━━━━━━━━━━━━\n📖 *How to use:*\n1. Copy any WhatsApp group invite link\n2. Use: .join <paste-link-here>\n\n━━━━━━━━━━━━━━━━━━━━\n🔗 *Valid link format:*\n└ https://chat.whatsapp.com/XXXXXX\n\n━━━━━━━━━━━━━━━━━━━━\n✨ *Example:*\n└ .join https://chat.whatsapp.com/K1CZsGzSk6t8Rw4t81fHEI\n\n━━━━━━━━━━━━━━━━━━━━\n📌 *Note:*\n└ Only works for WhatsApp GROUPS\n└ Does NOT work for Channels\n└ Bot must not be banned from the group`,
+                text: `🆘 *JOIN COMMAND HELP*\n\n━━━━━━━━━━━━━━━━━━━━\n📖 *How to use:*\n1. Copy any WhatsApp group invite link\n2. Use: .join <paste-link-here>\n\n━━━━━━━━━━━━━━━━━━━━\n🔗 *Valid link format:*\n└ https://chat.whatsapp.com/XXXXXX\n\n━━━━━━━━━━━━━━━━━━━━\n✨ *Example:*\n└ .join https://chat.whatsapp.com/XXXXXXXXXXXXXXXXXXXXX\n\n━━━━━━━━━━━━━━━━━━━━\n📌 *Note:*\n└ Only works for WhatsApp GROUPS\n└ Does NOT work for Channels\n└ Bot must not be banned from the group`,
                 ...channelInfo
             });
             return;
@@ -75,7 +75,7 @@ async function joinCommand(sock, chatId, message) {
         
         if (!link) {
             await sock.sendMessage(chatId, {
-                text: `❌ *INVALID LINK*\n\n━━━━━━━━━━━━━━━━━━━━\n📖 Please provide a WhatsApp group link!\n\n✨ *Example:*\n└ .join https://chat.whatsapp.com/K1CZsGzSk6t8Rw4t81fHEI`,
+                text: `❌ *INVALID LINK*\n\n━━━━━━━━━━━━━━━━━━━━\n📖 Please provide a WhatsApp group link!\n\n✨ *Example:*\n└ .join https://chat.whatsapp.com/XXXXXXXXXXXXXXXXXXXXX`,
                 ...channelInfo
             });
             return;

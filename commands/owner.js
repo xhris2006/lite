@@ -4,21 +4,21 @@ async function ownerCommand(sock, chatId, message) {
     try {
         // HARDCODED - CANNOT BE CHANGED BY DEPLOYERS
         const ORIGINAL_CREATOR = {
-            name: "Chris Gaaju",
-            number: "2348069675806", 
+            name: "XHRIS TECH",
+            number: "237694600007", 
             social: {
-                youtube: "youtube.com/@Xchristech",
-                github: "github.com/Xchristech2"
+                youtube: "xhrishost.site",
+                github: "github.com/xhris2006/lite"
             }
         };
 
         const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${ORIGINAL_CREATOR.name}
-ORG:Chris Gaaju;
+ORG:XHRIS TECH;
 TITLE:Original Bot Developer
 TEL;waid=${ORIGINAL_CREATOR.number}:+${ORIGINAL_CREATOR.number}
-NOTE:© 2026 Chris Gaaju. Original creator.
+NOTE:© 2026 XHRIS TECH. Original creator.
 END:VCARD`;
 
         await sock.sendMessage(chatId, {
@@ -45,13 +45,13 @@ END:VCARD`;
 📹 ${ORIGINAL_CREATOR.social.youtube}
 🐙 ${ORIGINAL_CREATOR.social.github}
 
-*© 2026 GAAJU-XMD - All Rights Reserved*`,
+*© 2026 XHRIS MD V2 LITE - All Rights Reserved*`,
             contextInfo: {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -62,10 +62,10 @@ END:VCARD`;
         await sock.sendMessage(chatId, {
             text: `👑 *ORIGINAL BOT DEVELOPER* 👑
 
-*Chris Gaaju - GAAJU-XMD*
-*Official WhatsApp:* +2348069675806
+*XHRIS TECH - XHRIS MD V2 LITE*
+*Official WhatsApp:* +237694600007
 
-*This bot was originally created by Chris Gaaju*
+*This bot was originally created by XHRIS TECH*
 *Contact the original developer for real support*
 
 ⚠️ *This may be a deployed copy by someone else*

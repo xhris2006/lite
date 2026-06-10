@@ -61,7 +61,7 @@ const {
     coinhelpCommand 
 } = require('./commands/coinflip');
 const { saveStatusCommand } = require('./commands/simplestatus');
-const { setBotNameCommand, setBotOwnerCommand, setOwnerNumberCommand,setYTChannelCommand,setPackNameCommand,setAuthorCommand, setTimezoneCommand,configHelpCommand } = require('./commands/xchristech');
+const { setBotNameCommand, setBotOwnerCommand, setOwnerNumberCommand,setYTChannelCommand,setPackNameCommand,setAuthorCommand, setTimezoneCommand,configHelpCommand } = require('./commands/XHRIS TECH');
 const { checkUpdateCommand, updateInfoCommand, autoCheckUpdates } = require('./commands/checkupdate');
 const getppCommand = require('./commands/getpp');
 const { leaveCommand } = require('./commands/leave');
@@ -198,7 +198,7 @@ const soraCommand = require('./commands/sora');
 global.packname = settings.packname;
 global.author = settings.author;
 global.channelLink = "https://whatsapp.com/channel/0029VbBvGgyFsn0alyIDjw0z";
-global.ytch = settings.ytChannel || "Xchristech";
+global.ytch = settings.ytChannel || "XHRIS TECH";
 
 // ADD PLATFORM DETECTION HERE
 function getDeploymentPlatform() {
@@ -234,8 +234,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: global.newsletterJid || '120363406588763460@newsletter',
-            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+            newsletterName: 'XHRIS MD V2 LITE',
             serverMessageId: -1
         }
     }
@@ -297,7 +297,7 @@ await handleAutoreact(sock, message);
                 return;
             } else if (buttonId === 'support') {
                 await sock.sendMessage(chatId, { 
-                    text: `🔗 *Support*\n\nhttps://chat.whatsapp.com/K1CZsGzSk6t8Rw4t81fHEI?mode=wwt` 
+                    text: `🔗 *Support*\n\nhttps://chat.whatsapp.com/XXXXXXXXXXXXXXXXXXXXX?mode=wwt` 
                 }, { quoted: message });
                 return;
             }
@@ -634,7 +634,7 @@ if (!isPublic && !isOwnerOrSudoCheck) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
                     newsletterName: 'Xᴄʜʀɪs ᴛᴇᴄʜ2',
                     serverMessageId: -1
                 }
@@ -656,7 +656,7 @@ if (!isPublic && !isOwnerOrSudoCheck) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
                     newsletterName: 'Xᴄʜʀɪs ᴛᴇᴄʜ2',
                     serverMessageId: -1
                 }
@@ -689,7 +689,7 @@ if (!isPublic && !isOwnerOrSudoCheck) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
                     newsletterName: 'Xᴄʜʀɪs ᴛᴇᴄʜ2',
                     serverMessageId: -1
                 }
@@ -703,7 +703,7 @@ if (!isPublic && !isOwnerOrSudoCheck) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
                     newsletterName: 'Xᴄʜʀɪs ᴛᴇᴄʜ2',
                     serverMessageId: -1
                 }
@@ -1157,7 +1157,7 @@ case userMessage === '.confighelp':
                     
                     // Build botinfo message
                     let botInfoText = `🤖 *BOT INFORMATION*\n\n` +
-                                    `*Name:* ${settings.botName || 'GAAJU-XMD'}\n` +
+                                    `*Name:* ${settings.botName || 'XHRIS MD V2 LITE'}\n` +
                                     `*Version:* v${settings.version}\n` +
                                     `*Platform:* ${global.deploymentPlatform}\n` +
                                     `*Node.js:* ${process.version}\n` +
@@ -1179,8 +1179,8 @@ case userMessage === '.confighelp':
                                  `• Last Update Check: ${lastCheckTime}\n` +
                                  `• Update Available: ${updateStatus.updateAvailable ? 'Yes 🟢' : 'No ✅'}\n\n` +
                                  `🔗 *Links:*\n` +
-                                 `• GitHub: https://github.com/Xchristech2/GAAJU-XMD\n` +
-                                 `• YouTube: https://youtube.com/@Xchristech\n` +
+                                 `• GitHub: https://github.com/xhris2006/lite\n` +
+                                 `• YouTube: https://xhrishost.site\n` +
                                  `• Channel: ${global.channelLink}\n\n` +
                                  `📌 *Update Commands:*\n` +
                                  `• .checkupdate - Check for updates\n` +

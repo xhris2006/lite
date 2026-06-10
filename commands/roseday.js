@@ -203,7 +203,7 @@ async function rosedayCommand(sock, chatId, message) {
         // Create the final message with header
         const finalMessage = `🌹 *ROSE DAY SPECIAL* 🌹\n\n` +
                            `${randomRose}\n\n` +
-                           `*${settings.packname || 'GAAJU-XMD'}* 🤖 | *200+ Rose Messages*`;
+                           `*${settings.packname || 'XHRIS MD V2 LITE'}* 🤖 | *200+ Rose Messages*`;
 
         // Send the rose day message
         await sock.sendMessage(chatId, {
@@ -212,8 +212,8 @@ async function rosedayCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -228,8 +228,8 @@ async function rosedayCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }

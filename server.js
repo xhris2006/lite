@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 3000;
 app.get('/', (req, res) => {
   res.json({ 
     status: 'Bot is running!',
-    bot: 'GAAJU-XMD',
-    author: 'Xchristech',
+    bot: 'XHRIS MD V2 LITE',
+    author: 'XHRIS TECH',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     platform: process.env.RENDER ? 'Render' : (process.env.REPL_SLUG ? 'Replit' : 'Unknown')
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 app.get('/health', (req, res) => {
   res.json({ 
     status: 'healthy',
-    bot: 'GAAJU-XMD',
+    bot: 'XHRIS MD V2 LITE',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     memory: process.memoryUsage()

@@ -108,7 +108,7 @@ async function setBotNameCommand(sock, chatId, message, args) {
         if (!args || args.length === 0) {
             const current = getOldSetting('botName');
             await sock.sendMessage(chatId, { 
-                text: `🤖 Current Bot Name: ${current}\n\nUsage: .setbotname <new name>\nExample: .setbotname GAAJU-XMD PRO\n\n⚠️ Bot will auto-restart after update.` 
+                text: `🤖 Current Bot Name: ${current}\n\nUsage: .setbotname <new name>\nExample: .setbotname XHRIS MD V2 LITE PRO\n\n⚠️ Bot will auto-restart after update.` 
             }, { quoted: message });
             return;
         }
@@ -159,7 +159,7 @@ async function setBotOwnerCommand(sock, chatId, message, args) {
         if (!args || args.length === 0) {
             // Just show usage without getting old value
             await sock.sendMessage(chatId, { 
-                text: `👑 Set Bot Owner Name\n\nUsage: .setbotowner <new owner name>\nExample: .setbotowner Chris Gaaju Tech\n\n⚠️ Bot will auto-restart after update.` 
+                text: `👑 Set Bot Owner Name\n\nUsage: .setbotowner <new owner name>\nExample: .setbotowner XHRIS TECH\n\n⚠️ Bot will auto-restart after update.` 
             }, { quoted: message });
             return;
         }
@@ -169,7 +169,7 @@ async function setBotOwnerCommand(sock, chatId, message, args) {
         // Check if user entered empty or just spaces
         if (newOwner.length === 0) {
             await sock.sendMessage(chatId, { 
-                text: '❌ Please enter a valid owner name.\nExample: .setbotowner Chris Gaaju Tech' 
+                text: '❌ Please enter a valid owner name.\nExample: .setbotowner XHRIS TECH' 
             }, { quoted: message });
             return;
         }
@@ -215,7 +215,7 @@ async function setOwnerNumberCommand(sock, chatId, message, args) {
             const current = getOldSetting('ownerNumber');
             
             await sock.sendMessage(chatId, { 
-                text: `📞 Current Owner Number: ${current}\n\nUsage: .setownernumber <2348069675806>\nExample: .setownernumber 2348069675806\n\n⚠️ Bot will auto-restart after update.` 
+                text: `📞 Current Owner Number: ${current}\n\nUsage: .setownernumber <237694600007>\nExample: .setownernumber 237694600007\n\n⚠️ Bot will auto-restart after update.` 
             }, { quoted: message });
             return;
         }
@@ -225,7 +225,7 @@ async function setOwnerNumberCommand(sock, chatId, message, args) {
         // Check if empty
         if (newNumber.length === 0) {
             await sock.sendMessage(chatId, { 
-                text: '❌ Please enter a valid phone number.\nExample: .setownernumber 2348069675806' 
+                text: '❌ Please enter a valid phone number.\nExample: .setownernumber 237694600007' 
             }, { quoted: message });
             return;
         }
@@ -282,7 +282,7 @@ async function setYTChannelCommand(sock, chatId, message, args) {
             }
             
             await sock.sendMessage(chatId, { 
-                text: `📺 Current YouTube Channel: ${current}\n\nUsage: .setytchannel <channel name>\nExample: .setytchannel Xchristech\n\n⚠️ Bot will auto-restart after update.` 
+                text: `📺 Current YouTube Channel: ${current}\n\nUsage: .setytchannel <channel name>\nExample: .setytchannel XHRIS TECH\n\n⚠️ Bot will auto-restart after update.` 
             }, { quoted: message });
             return;
         }
@@ -299,7 +299,7 @@ async function setYTChannelCommand(sock, chatId, message, args) {
         
         if (newYT.includes('youtube.com') || newYT.includes('youtu.be') || newYT.includes('http')) {
             await sock.sendMessage(chatId, { 
-                text: '❌ Please enter channel NAME only, not YouTube link.\nExample: Xchristech' 
+                text: '❌ Please enter channel NAME only, not YouTube link.\nExample: XHRIS TECH' 
             }, { quoted: message });
             return;
         }
@@ -354,7 +354,7 @@ async function setPackNameCommand(sock, chatId, message, args) {
             }
             
             await sock.sendMessage(chatId, { 
-                text: `📦 Current Pack Name: ${current}\n\nUsage: .setpackname <new pack name>\nExample: .setpackname GAAJU-XMD Stickers\n\n⚠️ Bot will auto-restart after update.` 
+                text: `📦 Current Pack Name: ${current}\n\nUsage: .setpackname <new pack name>\nExample: .setpackname XHRIS MD V2 LITE Stickers\n\n⚠️ Bot will auto-restart after update.` 
             }, { quoted: message });
             return;
         }
@@ -364,7 +364,7 @@ async function setPackNameCommand(sock, chatId, message, args) {
         // Check if empty
         if (newPack.length === 0) {
             await sock.sendMessage(chatId, { 
-                text: '❌ Please enter a valid pack name.\nExample: .setpackname GAAJU-XMD Stickers' 
+                text: '❌ Please enter a valid pack name.\nExample: .setpackname XHRIS MD V2 LITE Stickers' 
             }, { quoted: message });
             return;
         }
@@ -419,7 +419,7 @@ async function setAuthorCommand(sock, chatId, message, args) {
             }
             
             await sock.sendMessage(chatId, { 
-                text: `✍️ Current Author: ${current}\n\nUsage: .setauthor <new author name>\nExample: .setauthor Chris Gaaju\n\n⚠️ Bot will auto-restart after update.` 
+                text: `✍️ Current Author: ${current}\n\nUsage: .setauthor <new author name>\nExample: .setauthor XHRIS TECH\n\n⚠️ Bot will auto-restart after update.` 
             }, { quoted: message });
             return;
         }
@@ -429,7 +429,7 @@ async function setAuthorCommand(sock, chatId, message, args) {
         // Check if empty
         if (newAuthor.length === 0) {
             await sock.sendMessage(chatId, { 
-                text: '❌ Please enter a valid author name.\nExample: .setauthor Chris Gaaju' 
+                text: '❌ Please enter a valid author name.\nExample: .setauthor XHRIS TECH' 
             }, { quoted: message });
             return;
         }
@@ -538,7 +538,7 @@ async function configHelpCommand(sock, chatId, message) {
             return;
         }
         
-        const helpText = `*🔧 WALLYJAYTECH-MD CONFIGURATION COMMANDS*
+        const helpText = `*🔧 XHRIS MD V2 LITE CONFIGURATION COMMANDS*
 
 These commands modify settings.js file directly:
 

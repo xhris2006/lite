@@ -1,5 +1,5 @@
 /** 
- * GAAJU-XMD - A WhatsApp Bot
+ * XHRIS MD V2 LITE - A WhatsApp Bot
  * Autoread Command - Automatically read all messages
  */
 
@@ -16,8 +16,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363406588763460@newsletter',
-            newsletterName: 'ᴄʜʀɪs ɢᴀᴀᴊᴜ',
+            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+            newsletterName: 'XHRIS TECH',
             serverMessageId: -1
         }
     }
@@ -252,7 +252,7 @@ function isBotMentionedInMessage(message, botNumber) {
             return true;
         }
         
-        const botNames = [global.botname?.toLowerCase(), 'bot', 'wallyjaytech', 'wallyjaytech-md'];
+        const botNames = [global.botname?.toLowerCase(), 'bot', 'XHRIS TECH', 'xhris-md'];
         const words = textContent.toLowerCase().split(/\s+/);
         if (botNames.some(name => words.includes(name))) {
             return true;

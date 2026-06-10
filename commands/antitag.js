@@ -188,7 +188,7 @@ contextInfo: {
 isForwarded: true,
 forwardingScore: 999, // Very high forwarding score
 forwardedNewsletterMessageInfo: {
-newsletterJid: '120363406588763460@newsletter', // Your channel ID
+newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'), // Your channel ID
 newsletterName: 'SYSTEM ALERT',
 serverMessageId: -1
 }

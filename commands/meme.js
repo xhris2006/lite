@@ -32,7 +32,7 @@ async function memeCommand(sock, chatId, message) {
             caption += `🚨 *NSFW Content*\n`;
         }
 
-        caption += `\n*© Powered by Gᴀᴀᴊᴜ-Xᴍᴅ*`;
+        caption += `\n*© Powered by XHRIS MD V2 LITE*`;
 
         // Send the meme image with caption
         await sock.sendMessage(chatId, {
@@ -42,8 +42,8 @@ async function memeCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -66,8 +66,8 @@ async function memeCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }
@@ -139,7 +139,7 @@ async function nsfwMemeCommand(sock, chatId, message, subreddit = '') {
                        `👤 *Author:* u/${memeData.author}\n` +
                        `⭐ *Upvotes:* ${memeData.ups?.toLocaleString() || 'N/A'}\n` +
                        `🚨 *NSFW Content*\n\n` +
-                       `*© Powered by Gᴀᴀᴊᴜ-Xᴍᴅ*`;
+                       `*© Powered by XHRIS MD V2 LITE*`;
 
         await sock.sendMessage(chatId, {
             image: { url: memeData.url },
@@ -148,8 +148,8 @@ async function nsfwMemeCommand(sock, chatId, message, subreddit = '') {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363406588763460@newsletter',
-                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                    newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                    newsletterName: 'XHRIS MD V2 LITE',
                     serverMessageId: -1
                 }
             }

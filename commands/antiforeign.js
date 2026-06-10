@@ -1,5 +1,5 @@
 /**
- * GAAJU-XMD - Anti-Foreign (LID Compatible)
+ * XHRIS MD V2 LITE - Anti-Foreign (LID Compatible)
  */
 
 const fs = require('fs');

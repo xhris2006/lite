@@ -1,5 +1,5 @@
 /**
- * GAAJU-XMD - Simple Dice Command
+ * XHRIS MD V2 LITE - Simple Dice Command
  * Roll a dice and get random dice sticker
  */
 
@@ -32,8 +32,8 @@ async function diceCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363406588763460@newsletter',
-                        newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                        newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                        newsletterName: 'XHRIS MD V2 LITE',
                         serverMessageId: -1
                     }
                 }
@@ -47,8 +47,8 @@ async function diceCommand(sock, chatId, message) {
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363406588763460@newsletter',
-                            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+                            newsletterName: 'XHRIS MD V2 LITE',
                             serverMessageId: -1
                         }
                     }

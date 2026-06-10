@@ -1,5 +1,5 @@
 /**
- * GAAJU-XMD - Takeout Game
+ * XHRIS MD V2 LITE - Takeout Game
  * Randomly eliminate players until one winner remains
  * Bot and Bot Owner are automatically excluded from playing
  */
@@ -15,8 +15,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363406588763460@newsletter',
-            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+            newsletterName: 'XHRIS MD V2 LITE',
             serverMessageId: -1
         }
     }

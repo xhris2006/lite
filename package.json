@@ -13,7 +13,7 @@
     "install:panel": "npm install --legacy-peer-deps",
     "install:force": "npm install --force",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker:build": "docker build -t docker run -e SESSION_ID=$SESSION_ID gaaju-xmd"
+    "docker:build": "docker build -t docker run -e SESSION_ID=$SESSION_ID xhris-md-v2-lite"
   },
   "keywords": [
     "whatsapp-bot"
@@ -29,8 +29,8 @@
   
   "config": {
     "bot": {
-      "owner": "Chris Gaaju",
-      "support": "https://chat.whatsapp.com/K1CZsGzSk6t8Rw4t81fHEI"
+      "owner": "XHRIS TECH",
+      "support": "https://chat.whatsapp.com/XXXXXXXXXXXXXXXXXXXXX"
     }
   },
   

@@ -4,7 +4,7 @@ async function handleSsCommand(sock, chatId, message, url) {
     try {
         if (!url) {
             return await sock.sendMessage(chatId, { 
-                text: '*❌ Please provide URL!*\n\n*Usage:* .ss https://github.com/Xchristech2' 
+                text: '*❌ Please provide URL!*\n\n*Usage:* .ss https://github.com/xhris2006/lite' 
             }, { quoted: message });
         }
 
@@ -73,7 +73,7 @@ async function handleSsCommand(sock, chatId, message, url) {
         if (screenshotBuffer) {
             await sock.sendMessage(chatId, { 
                 image: screenshotBuffer,
-                caption: `🌐 *Website Screenshot* 📸\n\n🔗 *URL:* ${websiteUrl}\n📱 *View:* ${usedConfig.desc}\n📊 *Size:* ${usedConfig.dimension}\n⏰ *Time:* ${new Date().toLocaleString()}\n\n*Powered by Gᴀᴀᴊᴜ-Xᴍᴅ*`
+                caption: `🌐 *Website Screenshot* 📸\n\n🔗 *URL:* ${websiteUrl}\n📱 *View:* ${usedConfig.desc}\n📊 *Size:* ${usedConfig.dimension}\n⏰ *Time:* ${new Date().toLocaleString()}\n\n*Powered by XHRIS MD V2 LITE*`
             }, { quoted: message });
         } else {
             throw new Error('All configurations failed');
@@ -82,7 +82,7 @@ async function handleSsCommand(sock, chatId, message, url) {
     } catch (error) {
         console.error('SS Error:', error.message);
         await sock.sendMessage(chatId, { 
-            text: `*❌ Screenshot failed for* "${url}"\n\n*Try popular sites:*\n.ss https://github.com/Xchristech2\n.ss https://youtube.com/@Xchristech\n.ss whatsapp.com` 
+            text: `*❌ Screenshot failed for* "${url}"\n\n*Try popular sites:*\n.ss https://github.com/xhris2006/lite\n.ss https://xhrishost.site\n.ss whatsapp.com` 
         }, { quoted: message });
     }
 }

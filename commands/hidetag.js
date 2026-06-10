@@ -35,15 +35,15 @@ async function hideTagCommand(sock, chatId, senderId, messageText, replyMessage,
         let content = {};
         if (replyMessage.imageMessage) {
             const filePath = await downloadMediaMessage(replyMessage.imageMessage, 'image');
-            content = { image: { url: filePath }, caption: messageText || replyMessage.imageMessage.caption || '*Copyright Chris Gaaju 2026*', mentions: nonAdmins };
+            content = { image: { url: filePath }, caption: messageText || replyMessage.imageMessage.caption || '*Copyright XHRIS TECH 2026*', mentions: nonAdmins };
         } else if (replyMessage.videoMessage) {
             const filePath = await downloadMediaMessage(replyMessage.videoMessage, 'video');
-            content = { video: { url: filePath }, caption: messageText || replyMessage.videoMessage.caption || '*Copyright Chris Gaaju 2026*', mentions: nonAdmins };
+            content = { video: { url: filePath }, caption: messageText || replyMessage.videoMessage.caption || '*Copyright XHRIS TECH 2026*', mentions: nonAdmins };
         } else if (replyMessage.conversation || replyMessage.extendedTextMessage) {
             content = { text: replyMessage.conversation || replyMessage.extendedTextMessage.text, mentions: nonAdmins };
         } else if (replyMessage.documentMessage) {
             const filePath = await downloadMediaMessage(replyMessage.documentMessage, 'document');
-            content = { document: { url: filePath }, fileName: replyMessage.documentMessage.fileName, caption: messageText || '*Copyright Chris Gaaju 2026*', mentions: nonAdmins };
+            content = { document: { url: filePath }, fileName: replyMessage.documentMessage.fileName, caption: messageText || '*Copyright XHRIS TECH 2026*', mentions: nonAdmins };
         }
 
         if (Object.keys(content).length > 0) {

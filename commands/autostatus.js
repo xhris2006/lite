@@ -15,8 +15,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363406588763460@newsletter',
-            newsletterName: 'ᴄʜʀɪs ɢᴀᴀᴊᴜ',
+            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+            newsletterName: 'XHRIS TECH',
             serverMessageId: -1
         }
     }

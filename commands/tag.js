@@ -36,7 +36,7 @@ async function tagCommand(sock, chatId, senderId, messageText, replyMessage, mes
                 const filePath = await downloadMediaMessage(replyMessage.imageMessage, 'image');
                 messageContent = {
                     image: { url: filePath },
-                    caption: messageText || replyMessage.imageMessage.caption || '*Copyright xchristech 2026*',
+                    caption: messageText || replyMessage.imageMessage.caption || '*Copyright XHRIS TECH 2026*',
                     mentions: mentionedJidList
                 };
             }
@@ -45,7 +45,7 @@ async function tagCommand(sock, chatId, senderId, messageText, replyMessage, mes
                 const filePath = await downloadMediaMessage(replyMessage.videoMessage, 'video');
                 messageContent = {
                     video: { url: filePath },
-                    caption: messageText || replyMessage.videoMessage.caption || '*Copyright xchristech 2026*',
+                    caption: messageText || replyMessage.videoMessage.caption || '*Copyright XHRIS TECH 2026*',
                     mentions: mentionedJidList
                 };
             }
@@ -62,7 +62,7 @@ async function tagCommand(sock, chatId, senderId, messageText, replyMessage, mes
                 messageContent = {
                     document: { url: filePath },
                     fileName: replyMessage.documentMessage.fileName,
-                    caption: messageText || '*Copyright xchristech 2026*',
+                    caption: messageText || '*Copyright XHRIS TECH 2026*',
                     mentions: mentionedJidList
                 };
             }

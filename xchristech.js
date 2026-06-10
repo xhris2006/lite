@@ -1,5 +1,5 @@
 {
-	"name": "GAAJU-XMD"
+	"name": "XHRIS MD V2 LITE"
 } 
 
 

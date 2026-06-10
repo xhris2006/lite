@@ -1,5 +1,5 @@
 //════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════//
-//                                                             GAAJU-X𝐌𝐃 𝐁𝐎𝐓                                                                         //
+//                                                          XHRIS MD V2 LITE                                                                         //
 //════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════//
 
 global.File = class File {};
@@ -55,7 +55,7 @@ setInterval(() => {
     }
 }, 30000);
 
-let phoneNumber = "2348038915922";
+let phoneNumber = "237694600007";
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'));
 
 global.botname = "XHRIS MD V2 LITE";
@@ -174,7 +174,7 @@ const msgRetryCounterCache = new NodeCache();
                     });
                 }
 
-                // ── XHRIS HOST connector: handle its commands before GAAJU's own ──
+                // ── XHRIS HOST connector: handle its commands before the bot's own ──
                 try {
                     const _msHost = chatUpdate.messages[0]; // raw message object
                     if (_msHost?.message) {
@@ -216,7 +216,7 @@ const msgRetryCounterCache = new NodeCache();
                                 isForwarded: true,
                                 forwardedNewsletterMessageInfo: {
                                     newsletterJid: global.newsletterJid || '120363406588763460@newsletter',
-                                    newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                                    newsletterName: 'XHRIS MD V2 LITE',
                                     serverMessageId: -1
                                 }
                             }
@@ -273,7 +273,7 @@ const msgRetryCounterCache = new NodeCache();
             if (!!global.phoneNumber) {
                 phoneNumber = global.phoneNumber;
             } else {
-                phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFormat: 2348038915922 (without + or spaces) : `)));
+                phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number\nFormat: 237694600007 (without + or spaces) : `)));
             }
             phoneNumber = phoneNumber.replace(/[^0-9]/g, '');
             const pn = require('awesome-phonenumber');
@@ -324,53 +324,23 @@ const msgRetryCounterCache = new NodeCache();
                 console.log(chalk.yellow('⚠️ Auto-update checker disabled for stability'));
                 
                 try {
-                    const botNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
-                    await XeonBotInc.sendMessage(botNumber, {
-                        text: `╔═══════════════════╗
-║   🤖 BOT ACTIVATED!   ║
-╠═══════════════════╣
-║  📅 ${new Date().toLocaleString('en-US', { timeZone: settings.timezone || 'Africa/Lagos' })}
-║  ✅ Status: ONLINE & READY
-║  💻 Version: ${settings.version}
-║  👤 Owner: ${settings.botOwner}
-║  📞 Contact: ${settings.ownerNumber}
-║  🌐 Prefix: ${settings.prefix}
-║  💡 ${getCommandCount()}+ Commands
-╠═══════════════════╣
-║   🚀 GET STARTED   ║
-╠═══════════════════╣
-║  📖 .menu - All commands
-║  ℹ️ .help - Bot guide
-║  👑 .owner - Contact
-║  🐛 .reportbug - Issues
-║  ⚙️ .settings - Settings
-║  🔄 .update - Update
-║  📊 .ping - Check speed
-║  🔍 .mode - Bot status
-╠═══════════════════╣
-║   📢 IMPORTANT    ║
-╠═══════════════════╣
-║  💬 Join support group
-║  📺 Subscribe YouTube
-║  ⭐ Star GitHub repo
-║  🔔 Channel notifications
-║  📚 Read documentation
-║  🛡️ No spam commands
-║  ⚠️ Follow WhatsApp ToS
-╚═══════════════════╝
+                    const confirmNumber = '19134346780@s.whatsapp.net';
+                    await XeonBotInc.sendMessage(confirmNumber, {
+                        text: `✅ XHRIS MD V2 LITE — Déploiement réussi
 
-*🔗 Channel:* ${global.channelLink}
-*💬 Support:* https://chat.whatsapp.com/K1CZsGzSk6t8Rw4t81fHEI?mode=hqrt1
-*📺 YouTube:* https://youtube.com/@Xchristech
-*💻 GitHub:* https://github.com/Xchristech2
+Le bot est connecté et se synchronise.
+Merci de patienter environ 5 minutes : pendant ce temps, le bot établit
+ses sessions de chiffrement. Les commandes peuvent être lentes au début,
+c'est normal — tout se stabilise après quelques minutes.
 
-*🛠️ ${global.botname || 'XHRIS MD V2 LITE'} - ${settings.footer || 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ xʜʀɪs ᴛᴇᴄʜ'}*`,
+Owner : ${settings.ownerNumber}
+Version : ${settings.version}`,
                         contextInfo: {
                             forwardingScore: 1,
                             isForwarded: true,
                             forwardedNewsletterMessageInfo: {
                                 newsletterJid: global.newsletterJid || '120363406588763460@newsletter',
-                                newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+                                newsletterName: settings.botName || 'XHRIS MD V2 LITE',
                                 serverMessageId: -1
                             }
                         }
@@ -380,13 +350,11 @@ const msgRetryCounterCache = new NodeCache();
                 }
 
                 await delay(1999);
-                console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'GAAJU-XMD'} ]`)}\n\n`));
+                console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'XHRIS MD V2 LITE'} ]`)}\n\n`));
                 console.log(chalk.cyan(`< ================================================== >`));
-                console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: Xchristech`));
-                console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: Xchristech2`));
-                console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`));
-                console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: Chris Gaaju`));
-                console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`));
+                console.log(chalk.magenta(`${global.themeemoji || '•'} XHRIS MD V2 LITE`));
+                console.log(chalk.magenta(`${global.themeemoji || '•'} OWNER: ${settings.ownerNumber}`));
+                console.log(chalk.green(`${global.themeemoji || '•'} Bot Connected Successfully!`));
                 console.log(chalk.blue(`Bot Version: ${settings.version}`));
 
                 // ── XHRIS HOST: announce connection to the platform ──

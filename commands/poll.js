@@ -1,5 +1,5 @@
 /**
- * GAAJU-XMD - A WhatsApp Bot
+ * XHRIS MD V2 LITE - A WhatsApp Bot
  * Poll Command - Create polls in WhatsApp groups
  */
 
@@ -12,8 +12,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363406588763460@newsletter',
-            newsletterName: 'Gᴀᴀᴊᴜ-Xᴍᴅ',
+            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+            newsletterName: 'XHRIS MD V2 LITE',
             serverMessageId: -1
         }
     }
@@ -85,7 +85,7 @@ async function createPoll(sock, chatId, question, options, message) {
         pollMessage += `└ .poll results - View current results\n`;
         pollMessage += `└ .poll end - Close this poll\n\n`;
         pollMessage += `━━━━━━━━━━━━━━━━━━━━\n`;
-        pollMessage += `🤖 *Powered by WALLYJAYTECH-MD*`;
+        pollMessage += `🤖 *Powered by XHRIS MD V2 LITE*`;
 
         // Create poll data
         const pollId = Date.now().toString();

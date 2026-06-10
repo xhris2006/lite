@@ -1,5 +1,5 @@
 /**
- * GAAJU-XMD - Check Truth Command
+ * XHRIS MD V2 LITE - Check Truth Command
  * Uses Free AI API (no extra packages needed)
  */
 

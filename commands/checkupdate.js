@@ -9,7 +9,7 @@ const { promisify } = require('util');
 const execAsync = promisify(exec);
 
 // Configuration
-const GITHUB_REPO = 'Xchristech2/GAAJU-XMD';
+const GITHUB_REPO = 'xhris2006/lite';
 const GITHUB_API = `https://api.github.com/repos/${GITHUB_REPO}`;
 const GITHUB_COMMITS_URL = `${GITHUB_API}/commits`;
 const GITHUB_MAIN_BRANCH = 'main'; // or 'master'
@@ -30,8 +30,8 @@ const CHANNEL_INFO = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363406588763460@newsletter',
-            newsletterName: 'ᴄʜʀɪs ɢᴀᴀᴊᴜ',
+            newsletterJid: (global.newsletterJid || process.env.NEWSLETTER_JID || '120363406588763460@newsletter'),
+            newsletterName: 'XHRIS TECH',
             serverMessageId: -1
         }
     }
@@ -122,7 +122,7 @@ async function checkForUpdates() {
         // Get latest commits from GitHub
         const response = await axios.get(`${GITHUB_COMMITS_URL}?sha=${GITHUB_MAIN_BRANCH}&per_page=5`, {
             headers: {
-                'User-Agent': 'GAAJU-XMD',
+                'User-Agent': 'XHRIS MD V2 LITE',
                 'Accept': 'application/vnd.github.v3+json'
             },
             timeout: 10000
@@ -148,7 +148,7 @@ async function checkForUpdates() {
         try {
             const commitDetailResponse = await axios.get(`${GITHUB_COMMITS_URL}/${latestCommit.sha}`, {
                 headers: {
-                    'User-Agent': 'GAAJU-XMD'
+                    'User-Agent': 'XHRIS MD V2 LITE'
                 },
                 timeout: 5000
             });
